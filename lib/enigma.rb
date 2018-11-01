@@ -2,15 +2,25 @@ require 'date'
 
 class Enigma
 
-  CHARACTER_MAP = ('a'..'z').to_a + ('0'..'9').to_a + [' ', ",", "."]
+  def initialize(char_map_options = nil)
+    @character_map = ('a'..'z').to_a << ' '
+  end
 
-  def initialize
+  def random_key(length = nil)
+    length ||= 4
+    n = rand(10**length)
+    int_to_string(n, length)
+  end
 
+  def int_to_string(int, length)
+    str = int.to_s
+    diff = length - str.size
+    '0' * diff + str
   end
 
   def rotate_letter(letter, amount)
-    index = CHARACTER_MAP.index(letter)
-    CHARACTER_MAP[(index + amount) % 39]
+    index = @character_map.index(letter)
+    @character_map[(index + amount) % @character_map.length]
   end
 
   def rotate_string_by_amounts(string, amounts)
@@ -22,6 +32,11 @@ class Enigma
 
   def rotate_string_by_key(string, key)
     rotate_string_by_amounts(string, key_to_amounts(key))
+  end
+
+  def rotate_string_by_key_and_offsets(string, key, offsets)
+    first_result = rotate_string_by_key(string, key)
+    rotate_string_by_amounts(first_result, offsets)
   end
 
   def key_to_amounts(key)

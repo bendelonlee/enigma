@@ -50,11 +50,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_rotates_a_string_by_key
-    assert_equal 'bibib', @e.rotate_string_by_key('zzzzz', '010')
+    assert_equal ' i i ', @e.rotate_string_by_key('zzzzz', '010')
   end
 
   def test_it_rotates_a_string_by_key_and_offsets
-    assert_equal 'bldkc', @e.rotate_string_by_key_and_offsets('.....', '010',[1,2,3])
+    assert_equal 'bldkc', @e.rotate_string_by_key_and_offsets('     ', '010',[1,2,3])
   end
 
   def test_it_turns_keys_into_amounts

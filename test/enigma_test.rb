@@ -14,15 +14,15 @@ class EnigmaTest < Minitest::Test
   def test_it_encrypts
     skip
     actual = @e.encrypt("This secret must be kept secret")
-    asssert_equal "Soemthing", actual
+    assert_equal "Soemthing", actual
   end
 
   def test_it_rotates_a_letter
-    asssert_equal 'b', @e.rotate_letter('a', '1')
+    assert_equal 'b', @e.rotate_letter('a', 1)
   end
 
   def test_it_rotates_a_string
-    asssert_equal 'bcad', @e.rotate_letter('aaaa', '1203')
+    assert_equal 'bcad', @e.rotate_string('aaaa', '1203')
   end
 
 end

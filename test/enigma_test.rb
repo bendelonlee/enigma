@@ -19,10 +19,13 @@ class EnigmaTest < Minitest::Test
 
   def test_it_rotates_a_letter
     assert_equal 'b', @e.rotate_letter('a', 1)
+    assert_equal 'a', @e.rotate_letter('.', 1)
   end
 
   def test_it_rotates_a_string
-    assert_equal 'bcad', @e.rotate_string('aaaa', '1203')
+    assert_equal 'bcad', @e.rotate_string('aaaa', [1, 2, 0, 3])
+
   end
+
 
 end

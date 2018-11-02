@@ -15,7 +15,7 @@ class Enigma
   end
 
   def encrypt(string, key = nil, date = nil)
-    @string = string
+    @string ||= string
     @key = key ? key : random_key
     @date = date ? date : Date.today
   end

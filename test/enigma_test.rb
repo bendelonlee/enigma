@@ -10,6 +10,15 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @e
   end
 
+  def test_it_encrypts
+    expected = {
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected, @e.encrypt("hello world", "02715", "040895")
+  end
+
   # def test_it_encrypts
   #   skip
   #   actual = @e.encrypt("This secret must be kept secret")

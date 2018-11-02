@@ -1,11 +1,10 @@
 require './test/test_helper'
-require './lib/enigma'
 require './lib/crypter'
 
 class RotationTest < Minitest::Test
 
   def setup
-    @c = Crypter.new('thesestrings','donot','matterhere', Enigma::DEFAULT_CHARACTER_MAP)
+    @c = Crypter.new('thesestrings','donot','matterhere')
   end
 
     def test_it_rotates_a_letter

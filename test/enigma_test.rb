@@ -1,5 +1,6 @@
 require './test/test_helper'
 require './lib/enigma'
+
 class EnigmaTest < Minitest::Test
 
   def setup
@@ -27,7 +28,7 @@ class EnigmaTest < Minitest::Test
 
   def test_it_generates_a_random_key_if_no_key_given
     @e.encrypt("This secret must be kept secret", nil, nil, false)
-    actual = @e.send(:key)
+    actual = @e.send(:encrypter).send(:key)
     assert_equal 5, actual.size
     assert_instance_of String, actual
     assert actual[/\d{4}/]

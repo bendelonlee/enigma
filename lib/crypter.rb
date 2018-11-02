@@ -6,11 +6,13 @@ class Crypter
   include Rotation
   include DateHandling
 
-  def initialize(string, key, ddmmyy, character_map)
+  DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
+
+  def initialize(string, key, ddmmyy)
     @string = string
     @key = key
     @ddmmyy = ddmmyy
-    @character_map = character_map
+    @character_map = DEFAULT_CHARACTER_MAP
   end
 
   def result

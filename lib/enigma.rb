@@ -17,7 +17,17 @@ class Enigma
   def encrypt(string, key = nil, date = nil)
     @string ||= string
     @key = key ? key : random_key
-    @date = date ? date : Date.today
+    @date = get_actual_date(date)
+  end
+
+  def get_actual_date(date)
+    if date && date.is_a?(Date)
+      date
+    elsif date && date.is_a?(String)
+      string_to_date(date)
+    else
+      Date.today
+    end
   end
 
   private

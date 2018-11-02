@@ -21,12 +21,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_store_a_ddmmyy_string_as_a_date
-    skip
     @e.encrypt(nil, nil, "040895")
-    assert_equal assert_equal Date.new(95,8,4), @e.send(:date)
+    assert_equal Date.new(95,8,4), @e.send(:date)
   end
-
-
 
   def test_it_can_recieve_a_string_from_encrypt_method
     @e.encrypt("This secret must be kept secret")

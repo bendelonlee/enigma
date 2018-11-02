@@ -20,9 +20,13 @@ class SimpleDateTest < Minitest::Test
     assert_equal @date, @sd.date
   end
 
-  def test_it_will_have_a_date_object_when_initialized_with_a_ddmmmy_string
+  def test_it_will_have_correct_date_object_when_initialized_with_a_ddmmmy_string
     sd = SimpleDate.new('010613')
-    assert_equal @date, sd.date
+    actual = sd.date
+    assert_instance_of Date, actual
+    assert_equal actual.month, @date.month
+    assert_equal actual.day, @date.day
+    assert_equal actual.year % 100, @date.year % 100
   end
 
 

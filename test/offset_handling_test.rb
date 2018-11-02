@@ -23,7 +23,4 @@ class OffsetHandlingTest < Minitest::Test
     assert_equal '030201', @e.parse_time(Date.new(2001,02,03))
   end
 
-
-
-
 end

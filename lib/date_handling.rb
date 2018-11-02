@@ -15,7 +15,8 @@ module DateHandling
   end
 
   def string_to_date(string)
-
+    nums = string.chars.each_slice(2).to_a.reverse.map { |pair| pair.join.to_i }
+    Date.new(*nums)
   end
 
 end

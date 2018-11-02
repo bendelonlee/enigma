@@ -11,6 +11,4 @@ class EncryptionTest < Minitest::Test
     assert_equal 'keder ohulw', @e.encrypt_string("hello world")
   end
 
-
-
 end

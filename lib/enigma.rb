@@ -14,4 +14,10 @@ class Enigma
     @character_map = ('a'..'z').to_a << ' '
   end
 
+  def encrypt(string, key = nil, date = nil)
+    @string = string
+    @key = key ? key : random_key
+    @date = date ? date : Time.now
+  end
+
 end

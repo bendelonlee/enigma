@@ -29,5 +29,15 @@ class SimpleDateTest < Minitest::Test
     assert_equal actual.year % 100, @date.year % 100
   end
 
+  def test_it_is_today_if_argument_is_nil
+    sd = SimpleDate.new(nil)
+    assert_equal Date.today, sd.date
+  end
+
+  def test_it_is_today_if_no_argument
+    sd = SimpleDate.new
+    assert_equal Date.today, sd.date
+  end
+
 
 end

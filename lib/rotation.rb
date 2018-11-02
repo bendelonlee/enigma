@@ -1,0 +1,22 @@
+module Rotation
+    def rotate_letter(letter, amount)
+      index = @character_map.index(letter)
+      @character_map[(index + amount) % @character_map.length]
+    end
+
+    def rotate_string_by_amounts(string, amounts)
+      amounts_cycle = amounts.cycle
+      string.chars.map do |ch|
+        rotate_letter(ch, amounts_cycle.next.to_i)
+      end.join
+    end
+
+    def rotate_string_by_key(string, key)
+      rotate_string_by_amounts(string, key_to_amounts(key))
+    end
+
+    def rotate_string_by_key_and_offsets(string, key, offsets)
+      first_result = rotate_string_by_key(string, key)
+      rotate_string_by_amounts(first_result, offsets)
+    end
+end

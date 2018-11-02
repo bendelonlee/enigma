@@ -27,4 +27,16 @@ class KeyHandlingTest < Minitest::Test
     assert actual[/\d{7}/]
   end
 
+  def test_it_turns_keys_into_amounts
+    assert_equal [41,15,52,21], @e.key_to_amounts('41521')
+  end
+
+  def test_it_turns_keys_into_amounts
+    assert_equal [41,15,52,21], @e.key_to_amounts('41521')
+  end
+
+  def test_it_turns_keys_and_offsets_into_amounts
+    assert_equal [42,17,55,25], @e.key_to_amounts_with_offsets('41521', [1,2,3,4])
+  end
+
 end

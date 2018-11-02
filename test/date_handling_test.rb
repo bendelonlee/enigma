@@ -8,7 +8,7 @@ class DateTest < Minitest::Test
   end
 
   def test_it_can_generate_offsets_from_a_date
-    assert_equal [0,4,0,1], @e.date_to_offets(Date.new(2001,02,03))
+    assert_equal [0,4,0,1], @e.date_to_offsets(Date.new(2001,02,03))
   end
 
   def test_it_can_create_offsets_from_a_date_string

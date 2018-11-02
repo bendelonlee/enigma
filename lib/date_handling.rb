@@ -1,7 +1,7 @@
+require 'date'
 module DateHandling
 
-
-  def date_to_offets(date_or_time_object)
+  def date_to_offsets(date_or_time_object)
     parsed_date_to_offsets(date_to_string(date_or_time_object))
   end
 

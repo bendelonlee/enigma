@@ -11,6 +11,9 @@ class OffsetHandlingTest < Minitest::Test
     assert_equal [0,2,0,1], @e.date_to_offsets('010101')
   end
 
+  def test_it_can_generate_a_date_string_from_a_time_object
+    assert_equal '010101', Time.new('2001-01-01')
+  end
 
 
 

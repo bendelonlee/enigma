@@ -12,12 +12,11 @@ class KeyHandlingTest < Minitest::Test
     assert_equal '1234', @e.int_to_string(1234, 4)
   end
 
-
-  def test_it_can_generate_a_random_key_of_length_four_by_default
+  def test_it_can_generate_a_random_key_of_length_five_by_default
     actual = @e.random_key
     assert_instance_of String, actual
-    assert_equal 4, actual.length
-    assert actual[/\d{4}/]
+    assert_equal 5, actual.length
+    assert actual[/\d{5}/]
   end
 
   def test_it_can_generate_a_random_key_of_any_length
@@ -31,13 +30,8 @@ class KeyHandlingTest < Minitest::Test
     assert_equal [41,15,52,21], @e.key_to_amounts('41521')
   end
 
-  def test_it_turns_keys_into_amounts
-    assert_equal [41,15,52,21], @e.key_to_amounts('41521')
-  end
-
   def test_it_turns_keys_and_offsets_into_amounts
     assert_equal [42,17,55,25], @e.key_to_amounts_with_offsets('41521', [1,2,3,4])
   end
-
 
 end

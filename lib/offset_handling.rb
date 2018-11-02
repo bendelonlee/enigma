@@ -8,5 +8,4 @@ module OffsetHandling
     date_or_time_object.to_s[2..9].delete('-')
   end
 
-
 end

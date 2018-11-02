@@ -1,7 +1,7 @@
 require './test/test_helper'
-require './lib/simpe_date'
+require './lib/simple_date'
 
-class SimpleDate < Minitest::Test
+class SimpleDateTest < Minitest::Test
 
   def setup
     @sd = SimpleDate.new

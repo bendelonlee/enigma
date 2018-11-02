@@ -5,7 +5,8 @@ module OffsetHandling
   end
 
   def parse_time(date_or_time_object)
-    date_or_time_object.to_s[2..9].delete('-')
+    year_month_day = date_or_time_object.to_s[2..9].delete('-')
+    year_month_day.chars.each_slice(2).to_a.reverse.join
   end
 
 end

@@ -16,7 +16,7 @@ class EnigmaTest < Minitest::Test
     assert_equal "Soemthing", actual
   end
 
-  def test_it_can_recieve_an_
+  def test_it_can_recieve_any
 
   end
 

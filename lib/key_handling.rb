@@ -19,4 +19,5 @@ module KeyHandling
     offsets_cycle = offsets.cycle
     key_to_amounts(key).map { |n| n + offsets_cycle.next }
   end
+
 end

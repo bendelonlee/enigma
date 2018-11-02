@@ -12,7 +12,7 @@ class OffsetHandlingTest < Minitest::Test
   end
 
   def test_it_can_generate_a_date_string_from_a_time_object
-    assert_equal '010101', Time.new('2001-01-01')
+    assert_equal '010101', @e.parse_time(Time.new('2001-01-01'))
   end
 
 

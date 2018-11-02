@@ -1,13 +1,12 @@
 require 'date'
 require_relative 'rotation'
 require_relative 'key_handling'
-require_relative 'encryption'
+require_relative 'encrypter'
 require_relative 'date_handling'
 
 class Enigma
   include Rotation
   include KeyHandling
-  include Encryption
   include DateHandling
 
   def initialize(char_map_options = nil)
@@ -15,10 +14,12 @@ class Enigma
   end
 
   def encrypt(string = nil, key = nil, date = nil, on = true)
-    @string ||= string
-    @key = key ? key : random_key
-    @date = get_actual_date(date)
-    return_encryption_as_a_hash if on
+    unencrypted_string ||= string
+    definite_key       ||= random_key
+    @date                = get_actual_date(date)
+    ddmmyy               = date_to_string(date)
+    @encrypter = Encrypter.new
+    @encrypt.result
   end
 
   def get_actual_date(date)

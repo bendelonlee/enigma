@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/enigma'
 require 'date'
-class EncryptionTest < Minitest::Test
+class EncrypterTest < Minitest::Test
   def setup
     @e = Enigma.new
   end

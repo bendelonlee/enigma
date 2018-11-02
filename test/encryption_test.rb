@@ -7,7 +7,7 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_encrypts_a_string
-    @e.encrypt(nil, "02715", Date.new(1995, 8, 4))
+    @e.encrypt(nil, "02715", Date.new(1995, 8, 4), false)
     assert_equal 'keder ohulw', @e.encrypt_string("hello world")
   end
 

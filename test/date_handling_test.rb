@@ -16,11 +16,11 @@ class DateTest < Minitest::Test
   end
 
   def test_it_can_generate_a_date_string_from_a_time_object
-    assert_equal '030201', @e.parse_time(Time.new(2001,02,03))
+    assert_equal '030201', @e.date_to_string(Time.new(2001,02,03))
   end
 
   def test_it_can_generate_a_date_string_from_a_date_object
-    assert_equal '030201', @e.parse_time(Date.new(2001,02,03))
+    assert_equal '030201', @e.date_to_string(Date.new(2001,02,03))
   end
 
   def test_it_can_turn_a_ddmmyy_string_into_a_date

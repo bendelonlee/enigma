@@ -14,10 +14,11 @@ class Enigma
     @character_map = ('a'..'z').to_a << ' '
   end
 
-  def encrypt(string, key = nil, date = nil)
+  def encrypt(string = nil, key = nil, date = nil, on = true)
     @string ||= string
     @key = key ? key : random_key
     @date = get_actual_date(date)
+    return_encryption_as_a_hash if on
   end
 
   def get_actual_date(date)

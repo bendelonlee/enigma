@@ -6,4 +6,16 @@ class Crypter
     @ddmmyy = ddmmyy
   end
 
+  def result
+    {
+      key: @key,
+      date: @ddmmyy
+    }
+  end
+
+
+  private
+
+  attr_reader :string, :key, :ddmmyy
+
 end

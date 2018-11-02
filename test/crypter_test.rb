@@ -1,5 +1,5 @@
 require './test/test_helper'
-require './lib/enigma'
+require './lib/crypter'
 class CrypterTest < Minitest::Test
 
   def setup
@@ -20,6 +20,15 @@ class CrypterTest < Minitest::Test
 
   def test_it_can_recieve_a_ddmmyy
     assert_equal '020400', @crypter.send(:ddmmyy)
+  end
+
+  def test_it_can_return_a_result_hash
+    expected = {
+      key:'72113',
+      date:'020400'
+    }
+    assert_equal expected, @crypter.result
+
   end
 
 end

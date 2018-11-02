@@ -17,7 +17,9 @@ class Enigma
   def encrypt(string, key = nil, date = nil)
     @string = string
     @key = key ? key : random_key
-    @date = date ? date : Time.now
+    @date = date ? date : Date.today
   end
 
+  private
+  attr_reader :string, :key, :date
 end

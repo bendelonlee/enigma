@@ -1,6 +1,6 @@
 module KeyHandling
   def random_key(length = nil)
-    length ||= 4
+    length ||= 5
     n = rand(10**length)
     int_to_string(n, length)
   end

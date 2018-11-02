@@ -34,5 +34,4 @@ class KeyHandlingTest < Minitest::Test
     assert_equal [42,17,55,25], @e.key_to_amounts_with_offsets('41521', [1,2,3,4])
   end
 
-
 end

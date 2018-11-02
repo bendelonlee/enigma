@@ -2,13 +2,13 @@ require 'date'
 require_relative 'rotation'
 require_relative 'key_handling'
 require_relative 'encryption'
-require_relative 'offset_handling'
+require_relative 'date_handling'
 
 class Enigma
   include Rotation
   include KeyHandling
   include Encryption
-  include OffsetHandling
+  include DateHandling
 
   def initialize(char_map_options = nil)
     @character_map = ('a'..'z').to_a << ' '

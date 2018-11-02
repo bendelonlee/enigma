@@ -1,4 +1,4 @@
-module OffsetHandling
+module DateHandling
 
 
   def date_to_offets(date_or_time_object)
@@ -14,6 +14,8 @@ module OffsetHandling
     year_month_day.chars.each_slice(2).to_a.reverse.join
   end
 
+  def string_to_date(string)
 
+  end
 
 end

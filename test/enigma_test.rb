@@ -11,6 +11,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_encrypts
+    skip
     expected = {
       encryption: "keder ohulw",
       key: "02715",
@@ -19,11 +20,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @e.encrypt("hello world", "02715", "040895")
   end
 
-  # def test_it_encrypts
-  #   skip
-  #   actual = @e.encrypt("This secret must be kept secret")
-  #   assert_equal "Soemthing", actual
-  # end
+  def test_it_can_store_a_ddmmyy_string_as_a_date
+    skip
+    @e.encrypt(nil, nil, "040895")
+    assert_equal assert_equal Date.new(95,8,4), @e.send(:date)
+  end
+
+
 
   def test_it_can_recieve_a_string_from_encrypt_method
     @e.encrypt("This secret must be kept secret")

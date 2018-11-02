@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/enigma'
 
-class OffsetHandlingTest < Minitest::Test
+class DateTest < Minitest::Test
 
   def setup
     @e = Enigma.new
@@ -22,5 +22,11 @@ class OffsetHandlingTest < Minitest::Test
   def test_it_can_generate_a_date_string_from_a_date_object
     assert_equal '030201', @e.parse_time(Date.new(2001,02,03))
   end
+
+  def test_it_can_turn_a_ddmmyy_string_into_a_date
+    assert_equal @e.string_to_date('030201'), Date.new(2001,02,03)
+  end
+
+
 
 end

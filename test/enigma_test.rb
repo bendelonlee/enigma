@@ -30,8 +30,7 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @e.decrypt('keder ohulw', '02715', '040895')
   end
 
-
-  def test_it_can_decrypt_was_just_encrypted_with_todays_date
+  def test_it_can_decrypt_what_was_just_encrypted_with_todays_date
     secret = "this secret must remain secret"
     encryption = @e.encrypt(secret, "02715")[:encryption]
     assert_equal secret, @e.decrypt(encryption, "02715")[:decryption]

@@ -11,11 +11,16 @@ class CrackTest < Minitest::Test
   def test_it_decrypts_a_string
     skip
     expected = {
-      decryption: "hello world",
+      decryption: "hello world end",
       key: "02715",
       date: "040895"
     }
     assert_equal expected, @d.result
+  end
+
+  def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long
+    assert_equal [0,0,0], next_possible_amount
+    assert_equal [0,0,1], next_possible_amount
   end
 
 end

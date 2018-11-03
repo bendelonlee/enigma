@@ -21,7 +21,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_decrypts
-    
+
     expected = {
       decryption: "hello world",
       key: "02715",
@@ -31,12 +31,11 @@ class EnigmaTest < Minitest::Test
   end
 
 
-  # def test_it_can_decrypt_was_just_encrypted_with_todays_date
-  #
-  #
-  #
-  # end
-
+  def test_it_can_decrypt_was_just_encrypted_with_todays_date
+    secret = "this secret must remain secret"
+    encryption = @e.encrypt(secret, "02715")[:encryption]
+    assert_equal secret, @e.decrypt(encryption, "02715")[:decryption]
+  end
 
   # def test_it_generates_a_random_key_if_no_key_given
   #   @e.encrypt("This secret must be kept secret", nil, nil, false)

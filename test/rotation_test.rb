@@ -18,10 +18,6 @@ class RotationTest < Minitest::Test
       assert_equal 'a', decrypter.rotate_letter('b', 1)
     end
 
-    def shift_sums_index_and_amount_by_default
-      assert_equal 5, @c.shift(3,2)
-    end
-
     def test_shift_subtracts_index_and_amount_when_on_a_decrypter
       decrypter = Decrypter.new('thesestrings','donot','matterhere')
       assert_equal 1, decrypter.shift(3,2)

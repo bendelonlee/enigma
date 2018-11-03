@@ -44,6 +44,10 @@ class EnigmaTest < Minitest::Test
     assert actual[/\d{4}/]
   end
 
-
+  def test_it_used_todays_date_if_no_date_given
+    @e.encrypt("This secret must be kept secret", nil, nil, false)
+    actual = @e.send(:encrypter).send(:date).date
+    assert_equal Date.today, actual
+  end
 
 end

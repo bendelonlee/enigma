@@ -7,6 +7,10 @@ class CrackerTest < Minitest::Test
     @cracker = Cracker.new('keder ohulw', ReliableDate.new('040895'))
   end
 
+  def test_it_exists
+    assert_instance_of Cracker, @cracker
+  end
+
   def test_it_decrypts_a_string
     skip
     expected = {
@@ -14,7 +18,7 @@ class CrackerTest < Minitest::Test
       key: "02715",
       date: "040895"
     }
-    assert_equal expected, @d.result
+    assert_equal expected, @cracker.result
   end
 
   def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long

@@ -3,12 +3,13 @@ require_relative 'crypter'
 class Encrypter < Crypter
 
   def encrypt_string
-    require 'pry'; binding.pry
-    rotate_string_by_key_and_offsets(@string, @key, @date.offsets)
+    rotate_string_by_key_and_offsets(@string, @key, simpleDate_to_offsets(@date))
   end
 
   def result
-    super[:encryption] = encrypt_string
+    rslt = super
+    rslt[:encryption] = encrypt_string
+    rslt
   end
 
 end

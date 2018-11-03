@@ -16,7 +16,6 @@ class Enigma
     unencrypted_string ||= string
     key                ||= random_key
     @encrypter = Encrypter.new(unencrypted_string, key, SimpleDate.new(date))
-    require 'pry'; binding.pry
     @encrypter.result if on
   end
 

@@ -2,12 +2,10 @@ require 'date'
 require_relative 'key_handling'
 require_relative 'encrypter'
 require_relative 'decrypter'
-require_relative 'date_handling'
 require_relative 'reliable_date'
 
 class Enigma
   include KeyHandling
-  include DateHandling
 
   def encrypt(string = nil, key = nil, date = nil, on = true)
     unencrypted_string ||= string

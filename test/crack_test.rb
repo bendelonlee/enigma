@@ -19,8 +19,8 @@ class CrackTest < Minitest::Test
   end
 
   def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long
-    assert_equal [0,0,0], next_possible_amount
-    assert_equal [0,0,1], next_possible_amount
+    assert_equal [0,0,0], next_possible_amounts
+    assert_equal [0,0,1], next_possible_amounts
   end
 
 end

@@ -21,9 +21,8 @@ class DecrypterTest < Minitest::Test
   end
 
   def test_it_returns_a_hash_as_a_result
-    skip
     expected = {
-      encryption: "hello world",
+      decryption: "hello world",
       key: "02715",
       date: "040895"
     }

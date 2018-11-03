@@ -2,7 +2,10 @@ require_relative 'crypter'
 
 class Decrypter < Crypter
 
-  @direction = :backward
+  def initialize(string, key, simpledate)
+    super(string, key, simpledate)
+    @direction = :backward
+  end
 
   def decrypt_string
     rotate_string_by_key_and_offsets(@string, @key, @date.simpleDate_to_offsets)

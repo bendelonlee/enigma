@@ -24,7 +24,7 @@ class Crypter
   end
 
   def inspect
-    "<key:#{@key} date:#{@date.ddmmyy}"
+    "<key:#{@key} date:#{@date.ddmmyy} >"
   end
 
 

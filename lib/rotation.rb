@@ -1,7 +1,16 @@
 module Rotation
     def rotate_letter(letter, amount)
       index = @character_map.index(letter)
-      @character_map[(index + amount) % @character_map.length]
+      @character_map[(shift(index, amount)) % @character_map.length]
+    end
+
+    def shift(index, amount)
+      case @direction
+      when :forward
+        index + amount
+      when :backward
+        index - amount
+      end
     end
 
     def rotate_string_by_amounts(string, amounts)

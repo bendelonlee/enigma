@@ -13,7 +13,7 @@ class Decrypter < Crypter
 
   def result
     rslt = super
-    rslt[:encryption] = encrypt_string
+    rslt[:decryption] = decrypt_string
     rslt
   end
 

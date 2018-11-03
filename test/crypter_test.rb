@@ -19,7 +19,7 @@ class CrypterTest < Minitest::Test
   end
 
   def test_it_can_recieve_a_ddmmyy
-    assert_equal '020400', @crypter.send(:ddmmyy)
+    assert_equal '020400', @crypter.send(:date).send(:ddmmyy)
   end
 
   def test_it_can_return_a_result_hash

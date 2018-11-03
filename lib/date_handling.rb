@@ -1,8 +1,8 @@
 require 'date'
 module DateHandling
 
-  def simpleDate_to_offsets(simpleDate)
-    ddmmyy_to_offsets(simpleDate.ddmmyy)
+  def simpleDate_to_offsets
+    ddmmyy_to_offsets(self.ddmmyy)
   end
 
   def ddmmyy_to_offsets(date_string)

@@ -1,36 +1,24 @@
 require 'date'
-require_relative 'rotation'
 require_relative 'key_handling'
-require_relative 'encryption'
+require_relative 'encrypter'
 require_relative 'date_handling'
+require_relative 'simple_date'
 
 class Enigma
-  include Rotation
   include KeyHandling
-  include Encryption
   include DateHandling
 
   def initialize(char_map_options = nil)
-    @character_map = ('a'..'z').to_a << ' '
+
   end
 
   def encrypt(string = nil, key = nil, date = nil, on = true)
-    @string ||= string
-    @key = key ? key : random_key
-    @date = get_actual_date(date)
-    return_encryption_as_a_hash if on
-  end
-
-  def get_actual_date(date)
-    if date && date.is_a?(Date)
-      date
-    elsif date && date.is_a?(String)
-      string_to_date(date)
-    else
-      Date.today
-    end
+    unencrypted_string ||= string
+    key                ||= random_key
+    @encrypter = Encrypter.new(unencrypted_string, key, SimpleDate.new(date))
+    @encrypter.result if on
   end
 
   private
-  attr_reader :string, :key, :date
+  attr_reader :string, :date, :encrypter
 end

@@ -1,21 +1,34 @@
+require_relative 'rotation'
+require_relative 'key_handling'
+require_relative 'simple_date'
 class Crypter
 
-  def initialize(string, key, ddmmyy)
+  include KeyHandling
+  include Rotation
+
+  DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
+
+  def initialize(string, key, simpledate)
     @string = string
     @key = key
-    @ddmmyy = ddmmyy
+    @date = simpledate
+    @character_map = DEFAULT_CHARACTER_MAP
   end
 
   def result
     {
       key: @key,
-      date: @ddmmyy
+      date: @date.ddmmyy
     }
+  end
+
+  def inspect
+    "<key:#{@key} date:#{@date.ddmmyy}"
   end
 
 
   private
 
-  attr_reader :string, :key, :ddmmyy
+  attr_reader :string, :key, :date
 
 end

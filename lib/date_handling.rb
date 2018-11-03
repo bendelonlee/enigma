@@ -1,11 +1,11 @@
+require 'date'
 module DateHandling
 
-
-  def date_to_offets(date_or_time_object)
-    parsed_date_to_offsets(date_to_string(date_or_time_object))
+  def simpleDate_to_offsets
+    ddmmyy_to_offsets(self.ddmmyy)
   end
 
-  def parsed_date_to_offsets(date_string)
+  def ddmmyy_to_offsets(date_string)
     (date_string.to_i ** 2).to_s[-4..-1].chars.map(&:to_i)
   end
 

@@ -3,7 +3,8 @@ require './lib/crypter'
 class CrypterTest < Minitest::Test
 
   def setup
-    @crypter = Crypter.new('this secret must be kept secret', '72113', '020400')
+    @date = SimpleDate.new('020400')
+    @crypter = Crypter.new('this secret must be kept secret', '72113', @date)
   end
 
   def test_it_exists
@@ -18,14 +19,14 @@ class CrypterTest < Minitest::Test
     assert_equal '72113', @crypter.send(:key)
   end
 
-  def test_it_can_recieve_a_ddmmyy
-    assert_equal '020400', @crypter.send(:ddmmyy)
+  def test_it_can_recieve_a_simpledate
+    assert_equal '020400', @crypter.send(:date).send(:ddmmyy)
   end
 
   def test_it_can_return_a_result_hash
     expected = {
       key:'72113',
-      date:'020400'
+      date: '020400'
     }
     assert_equal expected, @crypter.result
 

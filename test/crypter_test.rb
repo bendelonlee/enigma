@@ -11,6 +11,10 @@ class CrypterTest < Minitest::Test
     assert_instance_of Crypter, @crypter
   end
 
+  def test_direction_is_set_to_forward_as_default
+    assert_equal :forward, @crypter.send(:direction)
+  end
+
   def test_it_can_recieve_a_string
     assert_equal "this secret must be kept secret", @crypter.send(:string)
   end

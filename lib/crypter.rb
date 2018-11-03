@@ -13,6 +13,7 @@ class Crypter
     @key = key
     @date = simpledate
     @character_map = DEFAULT_CHARACTER_MAP
+    @direction = :forward
   end
 
   def result
@@ -29,6 +30,6 @@ class Crypter
 
   private
 
-  attr_reader :string, :key, :date
+  attr_reader :string, :key, :date, :direction
 
 end

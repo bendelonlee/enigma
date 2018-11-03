@@ -4,7 +4,7 @@ require 'date'
 
 class EncrypterTest < Minitest::Test
   def setup
-    @encrypter = Encrypter.new('hello world', '02715', SimpleDate.new('040895'))
+    @encrypter = Encrypter.new('hello world', '02715', ReliableDate.new('040895'))
   end
 
   def test_it_encrypts_a_string

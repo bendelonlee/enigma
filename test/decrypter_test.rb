@@ -5,7 +5,7 @@ require './lib/encrypter'
 class DecrypterTest < Minitest::Test
 
   def setup
-    @d = Decrypter.new('keder ohulw', '02715', SimpleDate.new('040895'))
+    @d = Decrypter.new('keder ohulw', '02715', ReliableDate.new('040895'))
   end
 
   def test_its_direction_is_backward_by_default

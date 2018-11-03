@@ -3,7 +3,7 @@ require './lib/crypter'
 class CrypterTest < Minitest::Test
 
   def setup
-    @date = SimpleDate.new('020400')
+    @date = ReliableDate.new('020400')
     @crypter = Crypter.new('this secret must be kept secret', '72113', @date)
   end
 
@@ -23,7 +23,7 @@ class CrypterTest < Minitest::Test
     assert_equal '72113', @crypter.send(:key)
   end
 
-  def test_it_can_recieve_a_simpledate
+  def test_it_can_recieve_a_reliabledate
     assert_equal '020400', @crypter.send(:date).send(:ddmmyy)
   end
 

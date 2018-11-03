@@ -1,7 +1,7 @@
 require 'date'
 module DateHandling
 
-  def simpleDate_to_offsets
+  def reliabledate_to_offsets
     ddmmyy_to_offsets(self.ddmmyy)
   end
 
@@ -10,12 +10,12 @@ module DateHandling
   end
 
   def date_to_string(date)
-    year_month_day = date.to_s[2..9].delete('-')
-    year_month_day.chars.each_slice(2).to_a.reverse.join
+    date.strftime("%d%m%y")
   end
 
   def string_to_date(string)
     nums = string.chars.each_slice(2).to_a.reverse.map { |pair| pair.join.to_i }
+    nums[0] += 2000
     Date.new(*nums)
   end
 

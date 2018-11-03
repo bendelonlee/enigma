@@ -1,15 +1,15 @@
 require './test/test_helper'
-require './lib/simple_date'
+require './lib/reliable_date'
 
-class SimpleDateTest < Minitest::Test
+class ReliableDateTest < Minitest::Test
 
   def setup
     @date = Date.new(2013, 06,01)
-    @sd = SimpleDate.new(@date)
+    @sd = ReliableDate.new(@date)
   end
 
   def test_it_exists
-    assert_instance_of SimpleDate, @sd
+    assert_instance_of ReliableDate, @sd
   end
 
   def test_it_has_a_ddmmyy_string
@@ -21,7 +21,7 @@ class SimpleDateTest < Minitest::Test
   end
 
   def test_it_will_have_correct_date_object_when_initialized_with_a_ddmmmy_string
-    sd = SimpleDate.new('010613')
+    sd = ReliableDate.new('010613')
     actual = sd.date
     assert_instance_of Date, actual
     assert_equal actual.month, @date.month
@@ -30,12 +30,12 @@ class SimpleDateTest < Minitest::Test
   end
 
   def test_it_is_today_if_argument_is_nil
-    sd = SimpleDate.new(nil)
+    sd = ReliableDate.new(nil)
     assert_equal Date.today, sd.date
   end
 
   def test_it_is_today_if_no_argument
-    sd = SimpleDate.new
+    sd = ReliableDate.new
     assert_equal Date.today, sd.date
   end
 

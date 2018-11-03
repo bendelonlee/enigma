@@ -10,8 +10,7 @@ module DateHandling
   end
 
   def date_to_string(date)
-    year_month_day = date.to_s[2..9].delete('-')
-    year_month_day.chars.each_slice(2).to_a.reverse.join
+    date.strftime("%d%m%y")
   end
 
   def string_to_date(string)

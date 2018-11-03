@@ -8,10 +8,10 @@ class Crypter
 
   DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
 
-  def initialize(string, key, simpleDate)
+  def initialize(string, key, simpledate)
     @string = string
     @key = key
-    @date = simpleDate
+    @date = simpledate
     @character_map = DEFAULT_CHARACTER_MAP
   end
 

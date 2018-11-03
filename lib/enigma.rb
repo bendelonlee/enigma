@@ -9,10 +9,6 @@ class Enigma
   include KeyHandling
   include DateHandling
 
-  def initialize(char_map_options = nil)
-
-  end
-
   def encrypt(string = nil, key = nil, date = nil, on = true)
     unencrypted_string ||= string
     key                ||= random_key

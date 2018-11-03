@@ -33,9 +33,6 @@ class Crypter
 
   private
 
-  def turn_backward
-    @direction = :backward
-  end
 
   attr_reader :string, :key, :date, :direction
 

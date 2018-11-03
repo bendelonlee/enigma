@@ -8,7 +8,6 @@ class Crypter
 
   DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
 
-
   def initialize(string, key, simpledate)
     @string = string
     @key = key
@@ -16,8 +15,6 @@ class Crypter
     @character_map = DEFAULT_CHARACTER_MAP
     @direction = :forward
   end
-
-
 
   def result
     {
@@ -30,9 +27,7 @@ class Crypter
     "#<key:#{@key} date:#{@date.ddmmyy}>"
   end
 
-
   private
-
 
   attr_reader :string, :key, :date, :direction
 

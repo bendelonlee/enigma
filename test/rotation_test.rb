@@ -4,12 +4,17 @@ require './lib/crypter'
 class RotationTest < Minitest::Test
 
   def setup
-    @c = Crypter.new('thesestrings','donot','matterhere')
+    @c = Crypter.new('thesestrings','dont','matterhere')
   end
 
     def test_it_rotates_a_letter
       assert_equal 'b', @c.rotate_letter('a', 1)
       assert_equal 'a', @c.rotate_letter(' ', 1)
+    end
+
+    def test_a_decypter_rotates_a_letter_backward
+      decrypter = Decrypter.new('thesestrings','donot','matterhere')
+      assert_equal 'a', decrypter.rotate_letter('b', 1)
     end
 
     def test_it_rotates_a_string_by_amounts

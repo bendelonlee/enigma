@@ -14,7 +14,8 @@ class Crypter
     @date = reliabledate
     @character_map = DEFAULT_CHARACTER_MAP
     @direction = :forward
-  end
+  endsdf
+  SFD
 
   def result
     {

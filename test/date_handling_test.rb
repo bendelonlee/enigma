@@ -1,14 +1,14 @@
 require './test/test_helper'
-require './lib/simple_date'
+require './lib/reliable_date'
 
 class DateTest < Minitest::Test
 
   def setup
-    @sd = SimpleDate.new
+    @sd = ReliableDate.new
   end
 
   def test_it_can_generate_offsets_from_a_date
-    assert_equal [0,4,0,1], SimpleDate.new('030201').simpleDate_to_offsets
+    assert_equal [0,4,0,1], ReliableDate.new('030201').reliabledate_to_offsets
   end
 
   def test_it_can_create_offsets_from_a_date_string

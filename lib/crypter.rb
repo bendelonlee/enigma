@@ -1,6 +1,6 @@
 require_relative 'rotation'
 require_relative 'key_handling'
-require_relative 'simple_date'
+require_relative 'reliable_date'
 class Crypter
 
   include KeyHandling
@@ -8,10 +8,10 @@ class Crypter
 
   DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
 
-  def initialize(string, key, simpledate)
+  def initialize(string, key, reliabledate)
     @string = string
     @key = key
-    @date = simpledate
+    @date = reliabledate
     @character_map = DEFAULT_CHARACTER_MAP
     @direction = :forward
   end

@@ -1,7 +1,7 @@
 require 'date'
 module DateHandling
 
-  def simpleDate_to_offsets
+  def reliabledate_to_offsets
     ddmmyy_to_offsets(self.ddmmyy)
   end
 

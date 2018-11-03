@@ -9,6 +9,7 @@ class CrackTest < Minitest::Test
   end
 
   def test_it_decrypts_a_string
+    skip
     expected = {
       decryption: "hello world",
       key: "02715",

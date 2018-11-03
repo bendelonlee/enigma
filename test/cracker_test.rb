@@ -1,11 +1,10 @@
 require './test/test_helper'
-require './lib/decrypter'
-require './lib/encrypter'
+require './lib/cracker'
 
-class CrackTest < Minitest::Test
+class CrackerTest < Minitest::Test
 
   def setup
-    @d = Decrypter.new('keder ohulw', nil, ReliableDate.new('040895'))
+    @cracker = Cracker.new('keder ohulw', ReliableDate.new('040895'))
   end
 
   def test_it_decrypts_a_string

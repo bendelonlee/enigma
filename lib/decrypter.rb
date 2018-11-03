@@ -3,8 +3,6 @@ require_relative 'crypter'
 
 class Decrypter < Crypter
 
-  include Crack
-
   def initialize(string, key, reliabledate)
     super(string, key, reliabledate)
     @direction = :backward

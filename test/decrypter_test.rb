@@ -17,8 +17,7 @@ class DecrypterTest < Minitest::Test
   end
 
   def test_it_decrypts_a_string
-    skip
-    assert_equal 'hello world', @e.decrypt_string
+    assert_equal 'hello world', @d.decrypt_string
   end
 
   def test_it_returns_a_hash_as_a_result

@@ -2,10 +2,10 @@ require 'date'
 module DateHandling
 
   def date_to_offsets(date_or_time_object)
-    parsed_date_to_offsets(date_to_string(date_or_time_object))
+    ddmmyy_to_offsets(date_to_string(date_or_time_object))
   end
 
-  def parsed_date_to_offsets(date_string)
+  def ddmmyy_to_offsets(date_string)
     (date_string.to_i ** 2).to_s[-4..-1].chars.map(&:to_i)
   end
 

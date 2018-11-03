@@ -12,7 +12,7 @@ class DateTest < Minitest::Test
   end
 
   def test_it_can_create_offsets_from_a_date_string
-    assert_equal [0,2,0,1], @e.parsed_date_to_offsets('010101')
+    assert_equal [0,2,0,1], @e.ddmmyy_to_offsets('010101')
   end
 
   def test_it_can_generate_a_date_string_from_a_time_object

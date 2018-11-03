@@ -1,6 +1,6 @@
 require_relative 'date_handling'
 class SimpleDate
-  attr_reader :ddmmyy, :date
+  attr_reader :ddmmyy, :date, :offsets
   include DateHandling
   def initialize(date = nil)
     if date.is_a?(Date) || date == nil

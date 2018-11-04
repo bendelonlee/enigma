@@ -1,7 +1,6 @@
 require_relative 'crypter'
 require_relative 'date_handling'
 
-
 class Cracker < Crypter
   include DateHandling
 

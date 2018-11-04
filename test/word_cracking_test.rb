@@ -17,15 +17,19 @@ class WordCrackingTest < Minitest::Test
   end
 
   def test_check_next_possible_amounts_for_word_count
+    skip
     2715.times{@cracker.next_possible_key}
     assert_equal ({'02715'=>2}), @cracker.check_next_possible_amounts_for_word_count
   end
 
   def test_make_word
-    assert_equal 'hello', @cracker.make_word([3, 27, 73, 20].cycle)
+    amounts_cycle = [3, 27, 73, 20].cycle
+    assert_equal 'hello', @cracker.make_word(amounts_cycle)
+    assert_equal 'world', @cracker.make_word(amounts_cycle)
   end
 
   def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words
+    skip
     assert_equal '02715', @cracker.check_all_possible_amounts_and_find_key_that_results_in_most_words
   end
 end

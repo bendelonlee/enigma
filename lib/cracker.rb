@@ -11,8 +11,12 @@ class Cracker < Crypter
     @date = date
     @possible_key_values = (0..99999).to_a
     @assumption = assumption
-    extract_info_from_assumption if assumption
     set_defaults
+    assumption ? extract_info_from_assumption : setup_for_wordcracking
+  end
+
+  def setup_for_wordcracking
+    @direction = :backward; @index = 0
   end
 
   def extract_info_from_assumption

@@ -13,7 +13,6 @@ module WordCracking
 
   def check_next_possible_amounts_for_word_count
     amounts_cycle = next_possible_amounts.cycle
-    @direction = :backward
     word_count = 0; word = ''
     while word_count >= 0 && word != :string_ends
       word = make_word(amounts_cycle)
@@ -24,11 +23,12 @@ module WordCracking
 
   def make_word(amounts_cycle)
     word = ""
-    @string.chars.each do |char|
-      if rotate_letter(char, amounts_cycle.next) == ' '
-        return word
+    @string[@index..-1].lstrip.chars.each_with_index do |char, i|
+      letter = rotate_letter(char, amounts_cycle.next)
+      if letter == " "
+        @index = i; return word
       else
-        word += char
+        word += letter
       end
     end
     return word

@@ -38,13 +38,18 @@ class Cracker < Crypter
   end
 
   def check_next_possible_amounts
-    require 'pry'; binding.pry
     i = positive_assumption_location
-    amounts_cycle = next_possible_amounts_adjusted_with_date.cycle
+    n = which_amount_at_beginning_of_assumption_string
+    amounts_cycle = next_possible_amounts_adjusted_with_date.rotate(n).cycle
     assumption[:string].chars.each do |char|
       return false unless rotate_letter(char, amounts_cycle.next) == @string[i]
+      i += 1
     end
-    require 'pry'; binding.pry
+    current_key
+  end
+
+  def current_key
+    int_to_string(@possible_key_values[0] - 1)
   end
 
   def which_amount_at_beginning_of_assumption_string

@@ -44,7 +44,6 @@ class CrackerTest < Minitest::Test
   end
 
   def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key
-    skip
     assert_equal '02715', @cracker.check_all_possible_amounts_until_one_passes
   end
 

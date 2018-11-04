@@ -45,4 +45,8 @@ class CrackerTest < Minitest::Test
     assert_equal [1, 12, 23, 35], @cracker.next_possible_amounts
   end
 
+  def test_offsets_returns_offsets_from_stored_date
+    assert_equal [1, 0, 2, 5], @cracker.offsets
+  end
+
 end

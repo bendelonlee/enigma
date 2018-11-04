@@ -41,10 +41,30 @@ class Cracker < Crypter
   def check_all_possible_amounts_and_find_key_that_results_in_most_words
     keys_and_word_counts = {}
     until @possible_key_values.empty?
-      result = check_next_possible_amounts_for_word_counts
+      result = check_next_possible_amounts_for_word_count
       keys_and_word_counts.merge(result) if result
     end
     keys_and_word_counts.max_by{|key,word_count| word_count}.keys[0]
+  end
+
+  def check_next_possible_amounts_for_word_count
+    amounts_cycle = next_possible_amounts.cycle
+    @direction = backward
+    word_count = 0
+    while word_count >= 0
+      Word.common?(make_word) ? word_count += 1 : word_count -= 1
+    end
+  end
+
+  def make_word
+    word = ""
+    @string.chars.each do |char|
+      if rotate_letter(char, amounts_cycle.next) == ' '
+        word
+      else
+        word += char
+      end
+    end
   end
 
   def check_all_possible_amounts_against_assumption_until_one_passes

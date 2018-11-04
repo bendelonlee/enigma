@@ -21,8 +21,6 @@ class CrackerTest < Minitest::Test
 
   def test_helper_method_extracts_info_from_assumption
     cracker = Cracker.allocate
-    assert_nil cracker.instance_variable_get(:@positive_assumption_location)
-    assert_nil cracker.instance_variable_get(:@cycle_start_index)
     cracker.instance_variable_set(:@string, 'keder ohulwthnw')
     cracker.instance_variable_set(:@assumption, {string:' end', location: -4})
 

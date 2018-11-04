@@ -1,7 +1,9 @@
 require_relative 'crypter'
 require_relative 'date_handling'
+require_relative 'word_cracking'
 
 class Cracker < Crypter
+  include WordCracking
   include DateHandling
 
   def initialize(string, date, assumption = {string:' end', location: -4})

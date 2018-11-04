@@ -30,7 +30,15 @@ class Cracker < Crypter
     ddmmyy_to_offsets(@date.ddmmyy)
   end
 
+  def check_all_possible_amounts_until_one_passes
+    loop do
+      result = check_next_possible_amounts
+      return result if result
+    end
+  end
+
   def check_next_possible_amounts
+    require 'pry'; binding.pry
     i = positive_assumption_location
     amounts_cycle = next_possible_amounts_adjusted_with_date.cycle
     assumption[:string].chars.each do |char|

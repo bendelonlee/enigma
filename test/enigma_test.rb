@@ -60,4 +60,14 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.crack('keder ohulwthnw', "040895")
   end
 
+  def test_it_cracks_a_key_assuming_it_ends_with_space_end_and_returns_the_decryption_another_example
+    enigma = Enigma.new
+    expected = {
+      decryption: "this is a very important secret end",
+      key: "09040",
+      date: "041118"
+    }
+    assert_equal expected, enigma.crack('kzoir yqsravipfzdguhkstjrjktiwzqwej', "041118")
+  end
+
 end

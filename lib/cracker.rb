@@ -18,5 +18,5 @@ class Cracker < Crypter
 
   private
 
-  attr_reader :possible_key
+  attr_reader :possible_key_values
 end

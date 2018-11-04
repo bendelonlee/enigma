@@ -11,8 +11,8 @@ class CrackerTest < Minitest::Test
     assert_instance_of Cracker, @cracker
   end
 
-  def test_possible_key_starts_as_999_by_default
-    assert_equal '999', @cracker.send(:possible_key)
+  def test_possible_key_values_start_as_0_to_9999_by_default
+    assert_equal (0..9999), @cracker.send(:possible_key_values)
   end
 
   def test_it_decrypts_a_string

@@ -1,9 +1,10 @@
 require './lib/enigma'
 enigma = Enigma.new
 
+key               = ARGV[2]
 message_file      = File.open(ARGV[0], "r")
 parsed_message    = message_file.readlines.map(&:chomp).join(' ').downcase
-encryption_result = enigma.encrypt(parsed_message)
+encryption_result = enigma.encrypt(parsed_message, key)
 encrypted_message = encryption_result[:encryption]
 key               = encryption_result[:key]
 date              = encryption_result[:date]

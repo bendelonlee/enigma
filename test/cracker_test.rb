@@ -38,6 +38,7 @@ class CrackerTest < Minitest::Test
   end
 
   def test_when_it_has_no_assumptions_it_can_still_crack_the_encryption_by_checking_for_common_words
+    skip
     cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
     assert_equal '02715', cracker.crack
   end

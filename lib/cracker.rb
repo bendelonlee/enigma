@@ -30,13 +30,20 @@ class Cracker < Crypter
     ddmmyy_to_offsets(@date.ddmmyy)
   end
 
-  def check_all_possible_amounts_until_one_passes
-    loop do
-      result = check_next_possible_amounts
+  def crack
+    if @assumption
+      check_all_possible_amounts_against_assumption_until_one_passes
+    else
+      check_all_possible_amounts_and_find_key_results_in_most_words
+    end
+  end
+
+  def check_all_possible_amounts_against_assumption_until_one_passes
+    until @possible_key_values.empty?
+      result = check_next_possible_amounts_against_assumption
       return result if result
     end
   end
-  alias :crack :check_all_possible_amounts_until_one_passes
 
   def check_next_possible_amounts_against_assumption
     i = @positive_assumption_location

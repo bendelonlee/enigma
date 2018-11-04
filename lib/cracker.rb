@@ -37,6 +37,12 @@ class Cracker < Crypter
 
   end
 
+  def positive_assumption_location
+    ass_loc = @assumption[:location]
+    require 'pry'; binding.pry
+    ass_loc >= 0 ? ass_loc : @string.size + ass_loc
+  end
+
   private
 
   attr_reader :possible_key_values, :assumption

@@ -55,7 +55,7 @@ class CrackerTest < Minitest::Test
   end
 
   def test_which_amount_at_beginning_of_assumption_string
-    assert_equal 3, which_amount_at_beginning_of_assumption_string
+    assert_equal 3, @cracker.which_amount_at_beginning_of_assumption_string
   end
 
   def test_positive_assumption_location

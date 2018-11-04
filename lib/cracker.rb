@@ -5,11 +5,11 @@ require_relative 'date_handling'
 class Cracker < Crypter
   include DateHandling
 
-  def initialize(string, date, assumptions = nil)
+  def initialize(string, date, assumption = nil)
     @string = string
     @date = date
     @possible_key_values = (0..99999).to_a
-    @assumptions = assumptions ? assumptions : [{string:' end', location: -4}]
+    @assumption = assumption ? assumption : {string:' end', location: -4}
   end
 
   def next_possible_amounts
@@ -34,10 +34,10 @@ class Cracker < Crypter
   end
 
   def which_amount_at_beginning_of_assumption_string
-    
+
   end
 
   private
 
-  attr_reader :possible_key_values, :assumptions
+  attr_reader :possible_key_values, :assumption
 end

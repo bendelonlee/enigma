@@ -33,7 +33,10 @@ class CrackerTest < Minitest::Test
 
   def test_it_defaults_to_assumming_that_the_word_end_preceded_by_a_space_will_be_at_the_end_of_a_message
     assert_equal [{string:' end', location: -4}], @cracker.send(:assumptions)
+  end
 
+  def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
+    refute @cracker.check_next_possible_amounts
   end
 
 end

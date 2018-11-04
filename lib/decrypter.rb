@@ -1,4 +1,3 @@
-require_relative 'crack'
 require_relative 'crypter'
 
 class Decrypter < Crypter

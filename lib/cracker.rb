@@ -38,7 +38,7 @@ class Cracker < Crypter
   end
   alias :crack :check_all_possible_amounts_until_one_passes
 
-  def check_next_possible_amounts
+  def check_next_possible_amounts_against_assumption
     i = @positive_assumption_location
     amounts_cycle = next_possible_amounts.rotate(@cycle_start_index).cycle
     assumption[:string].chars.each do |char|

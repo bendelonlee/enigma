@@ -39,16 +39,16 @@ class CrackerTest < Minitest::Test
 
   def test_when_it_has_no_assumptions_it_can_still_crack_the_encryption_by_checking_for_common_words
     cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
-    assert_equal '02715', @cracker.crack
+    assert_equal '02715', cracker.crack
   end
 
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
-    refute @cracker.check_next_possible_amounts
+    refute @cracker.check_next_possible_amounts_against_assumption
   end
 
   def test_check_next_possible_returns_key_when_key_is_correct
     2715.times{@cracker.next_possible_key}
-    assert_equal '02715', @cracker.check_next_possible_amounts
+    assert_equal '02715', @cracker.check_next_possible_amounts_against_assumption
   end
 
   def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key

@@ -22,8 +22,7 @@ class WordCrackingTest < Minitest::Test
   end
 
   def test_make_word
-    skip
-    @cracker.make_word()
+    assert_equal 'hello', @cracker.make_word([3, 27, 73, 20].cycle)
   end
 
   def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words

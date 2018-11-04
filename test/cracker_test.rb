@@ -28,7 +28,12 @@ class CrackerTest < Minitest::Test
   def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long
     assert_equal [0,0,0,0], @cracker.next_possible_amounts
     assert_equal [0,0,0,1], @cracker.next_possible_amounts
+  end
 
+  def test_it_can_iterate_through_more_possible_amounts_generated_from_keys_five_digits_long
+    1234.times { @cracker.next_possible_amounts }
+    assert_equal [1, 12, 23, 34], @cracker.next_possible_amounts
+    assert_equal [1, 12, 23, 35], @cracker.next_possible_amounts
   end
 
 end

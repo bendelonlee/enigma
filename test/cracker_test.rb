@@ -29,6 +29,10 @@ class CrackerTest < Minitest::Test
     skip
     assert_equal [0,0,0,0], next_possible_amounts
     assert_equal [0,0,0,1], next_possible_amounts
+  end
+
+  def test_it_defaults_to_assumming_that_the_word_end_preceded_by_a_space_will_be_at_the_end_of_a_message
+    assert_equal [{string:' end', location: -4}], @cracker.send(:assumptions)
 
   end
 

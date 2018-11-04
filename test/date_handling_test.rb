@@ -8,7 +8,7 @@ class DateTest < Minitest::Test
   end
 
   def test_it_can_generate_offsets_from_a_date
-    assert_equal [0,4,0,1], ReliableDate.new('030201').reliabledate_to_offsets
+    assert_equal [0,4,0,1], ReliableDate.new('030201').to_offsets
   end
 
   def test_it_can_create_offsets_from_a_date_string

@@ -8,7 +8,7 @@ class Decrypter < Crypter
   end
 
   def decrypt_string
-    rotate_string_by_key_and_offsets(@string, @key, @date.reliabledate_to_offsets)
+    rotate_string_by_key_and_offsets(@string, @key, @date.to_offsets)
   end
 
   def result

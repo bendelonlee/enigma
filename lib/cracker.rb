@@ -34,8 +34,17 @@ class Cracker < Crypter
     if @assumption
       check_all_possible_amounts_against_assumption_until_one_passes
     else
-      check_all_possible_amounts_and_find_key_results_in_most_words
+      check_all_possible_amounts_and_find_key_that_results_in_most_words
     end
+  end
+
+  def check_all_possible_amounts_and_find_key_that_results_in_most_words
+    keys_and_word_counts = {}
+    until @possible_key_values.empty?
+      result = check_next_possible_amounts_for_word_counts
+      keys_and_word_counts.merge(result) if result
+    end
+    keys_and_word_counts.max_by{|key,word_count| word_count}.keys[0]
   end
 
   def check_all_possible_amounts_against_assumption_until_one_passes

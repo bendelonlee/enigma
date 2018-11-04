@@ -43,6 +43,12 @@ class CrackerTest < Minitest::Test
     assert_equal '02715', cracker.crack
   end
 
+  def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words
+    skip
+    cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
+    assert_equal '02715', cracker.check_all_possible_amounts_and_find_key_that_results_in_most_words
+  end
+
   def test_it_returns_error_message_when_no_key_is_found
     cracker = Cracker.new('keder ohulwt', ReliableDate.new('040895'))
     assert_equal "Couldn't crack", cracker.crack

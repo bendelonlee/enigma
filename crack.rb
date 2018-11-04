@@ -7,7 +7,7 @@ parsed_encryption = encrypted_file.readlines.map(&:chomp).join(' ').downcase
 decryption_result = enigma.crack(parsed_encryption, date)
 key               = decryption_result[:key]
 decrypted_message = decryption_result[:decryption]
-new_file_path     = "./data/#{ARGV[1]}"
+new_file_path     = "#{ARGV[1]}"
 new_file          = File.open(new_file_path, "w")
 new_file.write(decrypted_message)
 new_file.close

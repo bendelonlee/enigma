@@ -16,8 +16,12 @@ class WordCrackingTest < Minitest::Test
     assert_equal '02715', @cracker.crack
   end
 
-  def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words
+  def test_check_next_possible_returns_key_when_key_is_correct
+    2715.times{@cracker.next_possible_key}
+    assert_equal ({'02715'=>2}), @cracker.check_next_possible_amounts_against_assumption
+  end
 
+  def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words
     assert_equal '02715', @cracker.check_all_possible_amounts_and_find_key_that_results_in_most_words
   end
 end

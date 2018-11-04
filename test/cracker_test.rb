@@ -34,7 +34,7 @@ class CrackerTest < Minitest::Test
   end
 
   def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key
-    assert_equal '02715', @cracker.check_all_possible_amounts_until_one_passes
+    assert_equal '02715', @cracker.crack
   end
 
   def test_it_can_iterate_through_more_possible_amounts_generated_from_keys_five_digits_long

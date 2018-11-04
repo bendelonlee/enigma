@@ -13,11 +13,17 @@ class Cracker < Crypter
   end
 
   def next_possible_amounts
+    #will likely want to delete
     key_to_amounts(int_to_string(@possible_key_values.shift))
   end
 
+  def next_possible_key
+    #will likely want to delete
+    int_to_string(@possible_key_values.shift)
+  end
+
   def next_possible_amounts_adjusted_with_date
-    (next_possible_amounts)
+    key_to_amounts_with_offsets(next_possible_key, offsets)
   end
 
   def offsets
@@ -25,7 +31,7 @@ class Cracker < Crypter
   end
 
   def check_next_possible_amounts
-    key_to_amounts_with_offsets(next_possible_amounts, offsets)
+
   end
 
   private

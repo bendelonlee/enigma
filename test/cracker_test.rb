@@ -49,4 +49,9 @@ class CrackerTest < Minitest::Test
     assert_equal [1, 0, 2, 5], @cracker.offsets
   end
 
+  def test_next_possible_amounts_adjusted_with_date_returns_correctly
+    assert_equal [1, 0, 2, 5], @cracker.next_possible_amounts_adjusted_with_date
+    assert_equal [1, 0, 2, 6], @cracker.next_possible_amounts_adjusted_with_date
+  end
+
 end

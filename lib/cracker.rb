@@ -4,14 +4,18 @@ require_relative 'date_handling'
 class Cracker < Crypter
   include DateHandling
 
-  def initialize(string, date, assumption = nil)
+  def initialize(string, date, assumption = {string:' end', location: -4})
     @string = string
     @date = date
     @possible_key_values = (0..99999).to_a
-    @assumption = assumption ? assumption : {string:' end', location: -4}
+    @assumption = assumption
+    extract_info_from_assumption if assumption
+    set_defaults
+  end
+
+  def extract_info_from_assumption
     @positive_assumption_location = positive_assumption_location
     @cycle_start_index = which_amount_at_beginning_of_assumption_string
-    set_defaults
   end
 
   def next_possible_key

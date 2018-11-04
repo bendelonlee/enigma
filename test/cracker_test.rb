@@ -19,9 +19,22 @@ class CrackerTest < Minitest::Test
     assert_equal ({string:' end', location: -4}), @cracker.send(:assumption)
   end
 
+  def test_helper_method_extracts_info_from_assumption
+    cracker = Cracker.allocate
+    assert_nil cracker.instance_variable_get(:@positive_assumption_location)
+    assert_nil cracker.instance_variable_get(:@cycle_start_index)
+    cracker.instance_variable_set(:@string, 'keder ohulwthnw')
+    cracker.instance_variable_set(:@assumption, {string:' end', location: -4})
+
+    cracker.extract_info_from_assumption
+
+    assert_equal 11, cracker.instance_variable_get(:@positive_assumption_location)
+    assert_equal 3, cracker.instance_variable_get(:@cycle_start_index)
+  end
+
   def test_it_can_have_no_assumption
     cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
-    assert_nil @cracker.send(:assumption)
+    assert_nil cracker.send(:assumption)
   end
 
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid

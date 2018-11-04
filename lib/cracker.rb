@@ -9,11 +9,11 @@ class Cracker < Crypter
   def initialize(string, date)
     @string = string
     @date = date
-    @possible_key_values = (0..9999)
+    @possible_key_values = (0..99999).to_a
   end
 
   def next_possible_amounts
-    @possible_key.next
+    key_to_amounts(int_to_string(@possible_key_values.shift))
   end
 
   private

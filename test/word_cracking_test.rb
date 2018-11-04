@@ -23,9 +23,20 @@ class WordCrackingTest < Minitest::Test
   end
 
   def test_make_word
+    skip
     amounts_cycle = [3, 27, 73, 20].cycle
     assert_equal 'hello', @cracker.make_word(amounts_cycle)
     assert_equal 'world', @cracker.make_word(amounts_cycle)
+    assert_equal 'end', @cracker.make_word(amounts_cycle)
+  end
+
+  def test_make_word_simply
+    @cracker.instance_variable_set(:@string, 'iahppf uhjs wprls')
+    amounts_cycle = [0, 1].cycle
+    assert_equal 'i', @cracker.make_word(amounts_cycle)
+    assert_equal 'hope', @cracker.make_word(amounts_cycle)
+    assert_equal 'this', @cracker.make_word(amounts_cycle)
+    assert_equal 'works', @cracker.make_word(amounts_cycle)
   end
 
   def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words

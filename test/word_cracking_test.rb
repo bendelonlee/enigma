@@ -3,8 +3,11 @@ require './lib/cracker'
 
 class WordCrackingTest < Minitest::Test
 
-  def test_it_exists
+  def setup
     @cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
+  end
+
+  def test_it_exists
     @cracker.is_a?(WordCracking)
   end
 
@@ -14,7 +17,7 @@ class WordCrackingTest < Minitest::Test
   end
 
   def test_method_check_all_possible_amounts_and_find_key_that_results_in_most_words
-    skip
+
     assert_equal '02715', @cracker.check_all_possible_amounts_and_find_key_that_results_in_most_words
   end
 end

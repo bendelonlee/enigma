@@ -11,7 +11,7 @@ class WordsTest < Minitest::Test
     assert Words.common?('hello')
   end
 
-  def test_it_knows_common_gibberish_isnt_a_word
+  def test_it_knows_gibberish_isnt_a_word
     refute Words.common?('sdfsdf')
   end
 

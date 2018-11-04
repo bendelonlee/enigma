@@ -5,7 +5,7 @@ module KeyHandling
     int_to_string(n, length)
   end
 
-  def int_to_string(int, length)
+  def int_to_string(int, length = 5)
     str = int.to_s
     diff = length - str.size
     '0' * diff + str

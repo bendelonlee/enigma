@@ -54,4 +54,8 @@ class CrackerTest < Minitest::Test
     assert_equal [1, 0, 2, 6], @cracker.next_possible_amounts_adjusted_with_date
   end
 
+  def test_which_amount_at_beginning_of_assumption_string
+    assert_equal 3, which_amount_at_beginning_of_assumption_string
+  end
+
 end

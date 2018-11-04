@@ -18,7 +18,6 @@ class Cracker < Crypter
   end
 
   def next_possible_key
-    #will likely want to delete
     int_to_string(@possible_key_values.shift)
   end
 
@@ -31,7 +30,11 @@ class Cracker < Crypter
   end
 
   def check_next_possible_amounts
+    next_possible_amounts_adjusted_with_date
+  end
 
+  def which_amount_at_beginning_of_assumption_string
+    
   end
 
   private

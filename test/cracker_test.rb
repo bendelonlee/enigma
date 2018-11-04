@@ -4,7 +4,7 @@ require './lib/cracker'
 class CrackerTest < Minitest::Test
 
   def setup
-    @cracker = Cracker.new('keder ohulw', ReliableDate.new('040895'))
+    @cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'))
   end
 
   def test_it_exists

@@ -12,6 +12,10 @@ class Crypter
     @string = string
     @key = key
     @date = reliabledate
+    set_defaults
+  end
+
+  def set_defaults
     @character_map = DEFAULT_CHARACTER_MAP
     @direction = :forward
   end

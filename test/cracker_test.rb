@@ -35,7 +35,6 @@ class CrackerTest < Minitest::Test
   end
 
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
-    skip
     refute @cracker.check_next_possible_amounts
   end
 

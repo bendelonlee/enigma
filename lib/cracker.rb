@@ -1,7 +1,6 @@
 require_relative 'crypter'
 require_relative 'date_handling'
 
-
 class Cracker < Crypter
   include DateHandling
 
@@ -36,6 +35,7 @@ class Cracker < Crypter
       return result if result
     end
   end
+  alias :crack :check_all_possible_amounts_until_one_passes
 
   def check_next_possible_amounts
     i = positive_assumption_location

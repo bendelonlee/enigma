@@ -15,16 +15,6 @@ class CrackerTest < Minitest::Test
     assert_equal (0..99999).to_a, @cracker.send(:possible_key_values)
   end
 
-  def test_it_decrypts_a_string
-    skip
-    expected = {
-      decryption: "hello world end",
-      key: "02715",
-      date: "040895"
-    }
-    assert_equal expected, @cracker.result
-  end
-
   def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long
     assert_equal [0,0,0,0], @cracker.next_possible_amounts
     assert_equal [0,0,0,1], @cracker.next_possible_amounts
@@ -44,7 +34,7 @@ class CrackerTest < Minitest::Test
   end
 
   def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key
-    assert_equal '02715', @cracker.check_all_possible_amounts_until_one_passes
+    assert_equal '02715', @cracker.crack
   end
 
   def test_it_can_iterate_through_more_possible_amounts_generated_from_keys_five_digits_long

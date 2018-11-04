@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/reliable_date'
 
-class DateTest < Minitest::Test
+class DateHandlingTest < Minitest::Test
 
   def setup
     @sd = ReliableDate.new

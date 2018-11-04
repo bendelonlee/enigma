@@ -10,19 +10,15 @@ class Cracker < Crypter
     @possible_key_values = (0..99999).to_a
     @assumption = assumption ? assumption : {string:' end', location: -4}
     @positive_assumption_location = positive_assumption_location
+    @cycle_start_index = which_amount_at_beginning_of_assumption_string
     set_defaults
-  end
-
-  def next_possible_amounts
-    #will likely want to delete
-    key_to_amounts(int_to_string(@possible_key_values.shift))
   end
 
   def next_possible_key
     int_to_string(@possible_key_values.shift)
   end
 
-  def next_possible_amounts_adjusted_with_date
+  def next_possible_amounts
     key_to_amounts_with_offsets(next_possible_key, offsets)
   end
 
@@ -40,8 +36,7 @@ class Cracker < Crypter
 
   def check_next_possible_amounts
     i = @positive_assumption_location
-    n = which_amount_at_beginning_of_assumption_string
-    amounts_cycle = next_possible_amounts_adjusted_with_date.rotate(n).cycle
+    amounts_cycle = next_possible_amounts.rotate(@cycle_start_index).cycle
     assumption[:string].chars.each do |char|
       return false unless rotate_letter(char, amounts_cycle.next) == @string[i]
       i += 1

@@ -28,7 +28,7 @@ class Crypter
   end
 
   def inspect
-    "#<key:#{@key} date:#{@date.ddmmyy}>"
+    "#<#{self.class} key:#{@key} date:#{@date.ddmmyy}>"
   end
 
   private

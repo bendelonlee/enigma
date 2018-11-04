@@ -23,3 +23,9 @@ I moved positive_assumption_location from behavior to state. The decrease in tim
 
 With key 70295
 1.5791469999967376
+
+## Arrays vs Sets for word lookup
+
+Using a list of around 10,000 common words, I ran benchmarks on include for the word at the beginning of the list.  Results were consistently around 3 to 6 e-06 seconds.
+To find a word at the end of the list, it was around 1 to 2 e-04 seconds, or somewhere around a hundred times slower.
+When I converted the array to a set, finding words both at the beginning and end of the list were at around 3 to 6 e-06 seconds.

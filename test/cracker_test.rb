@@ -43,6 +43,11 @@ class CrackerTest < Minitest::Test
     assert_equal '02715', cracker.crack
   end
 
+  def test_it_returns_error_message_when_no_key_is_found
+    cracker = Cracker.new('keder ohulwt', ReliableDate.new('040895'))
+    assert_equal "Couldn't crack", cracker.crack
+  end
+
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
     refute @cracker.check_next_possible_amounts_against_assumption
   end

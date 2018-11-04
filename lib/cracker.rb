@@ -43,6 +43,7 @@ class Cracker < Crypter
       result = check_next_possible_amounts_against_assumption
       return result if result
     end
+    "Couldn't crack"
   end
 
   def check_next_possible_amounts_against_assumption

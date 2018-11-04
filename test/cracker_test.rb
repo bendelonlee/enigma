@@ -19,6 +19,11 @@ class CrackerTest < Minitest::Test
     assert_equal ({string:' end', location: -4}), @cracker.send(:assumption)
   end
 
+  def test_it_can_have_no_assumption
+    cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
+    assert_nil @cracker.send(:assumption)
+  end
+
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
     refute @cracker.check_next_possible_amounts
   end

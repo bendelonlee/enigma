@@ -36,6 +36,7 @@ class Cracker < Crypter
     assumption[:string].chars.each do |char|
       return false unless rotate_letter(char, amounts_cycle.next) == @string[i]
     end
+    require 'pry'; binding.pry
   end
 
   def which_amount_at_beginning_of_assumption_string

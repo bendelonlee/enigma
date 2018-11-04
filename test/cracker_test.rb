@@ -38,6 +38,10 @@ class CrackerTest < Minitest::Test
     refute @cracker.check_next_possible_amounts
   end
 
+  def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key
+    assert_equal '02715', check_all_possible_amounts_until_one_passes
+  end
+
   def test_it_can_iterate_through_more_possible_amounts_generated_from_keys_five_digits_long
     1234.times { @cracker.next_possible_amounts }
     assert_equal [1, 12, 23, 34], @cracker.next_possible_amounts

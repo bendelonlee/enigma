@@ -29,6 +29,4 @@ class DecrypterTest < Minitest::Test
     assert_equal expected, @d.result
   end
 
-
-
 end

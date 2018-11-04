@@ -37,7 +37,7 @@ class CrypterTest < Minitest::Test
   end
 
   def test_inspect
-    assert_equal "#Crypter <key:72113 date:020400>", @crypter.inspect
+    assert_equal "#<Crypter key:72113 date:020400>", @crypter.inspect
   end
 
 end

@@ -5,8 +5,7 @@ module WordCracking
     keys_and_word_counts = {}
     until @possible_key_values.empty?
       result = check_next_possible_amounts_for_word_count
-      keys_and_word_counts.merge(result) if result
-      require 'pry'; binding.pry if result
+      keys_and_word_counts.merge!(result) if result
     end
     result = keys_and_word_counts.max_by{|key,word_count| word_count}
     result ? result[0] : "Couldn't crack"

@@ -1,5 +1,6 @@
 module Rotation
     def rotate_letter(letter, amount)
+      return letter unless @character_map.include?(letter)
       index = @character_map.index(letter)
       @character_map[(shift(index, amount)) % @character_map.length]
     end

@@ -15,41 +15,53 @@ class CrackerTest < Minitest::Test
     assert_equal (0..99999).to_a, @cracker.send(:possible_key_values)
   end
 
-  def test_it_can_iterate_through_possible_amounts_generated_from_keys_five_digits_long
-    assert_equal [0,0,0,0], @cracker.next_possible_amounts
-    assert_equal [0,0,0,1], @cracker.next_possible_amounts
-  end
-
   def test_it_defaults_to_assumming_that_the_word_end_preceded_by_a_space_will_be_at_the_end_of_a_message
     assert_equal ({string:' end', location: -4}), @cracker.send(:assumption)
   end
 
+  def test_helper_method_extracts_info_from_assumption
+    cracker = Cracker.allocate
+    cracker.instance_variable_set(:@string, 'keder ohulwthnw')
+    cracker.instance_variable_set(:@assumption, {string:' end', location: -4})
+
+    cracker.extract_info_from_assumption
+
+    assert_equal 11, cracker.instance_variable_get(:@positive_assumption_location)
+    assert_equal 3, cracker.instance_variable_get(:@cycle_start_index)
+  end
+
+  def test_it_can_have_no_assumption
+    cracker = Cracker.new('keder ohulwthnw', ReliableDate.new('040895'), nil)
+    assert_nil cracker.send(:assumption)
+  end
+
+
+
+  def test_it_returns_error_message_when_no_key_is_found
+    cracker = Cracker.new('keder ohulwt', ReliableDate.new('040895'))
+    assert_equal "Couldn't crack", cracker.crack
+  end
+
   def test_it_can_check_amounts_against_assumptions_and_find_that_the_key_used_is_not_valid
-    refute @cracker.check_next_possible_amounts
+    refute @cracker.check_next_possible_amounts_against_assumption
   end
 
   def test_check_next_possible_returns_key_when_key_is_correct
     2715.times{@cracker.next_possible_key}
-    assert_equal '02715', @cracker.check_next_possible_amounts
+    assert_equal '02715', @cracker.check_next_possible_amounts_against_assumption
   end
 
   def test_it_keeps_going_until_it_finds_a_key_that_causes_the_assumption_to_be_true_then_returns_key
     assert_equal '02715', @cracker.crack
   end
 
-  def test_it_can_iterate_through_more_possible_amounts_generated_from_keys_five_digits_long
-    1234.times { @cracker.next_possible_amounts }
-    assert_equal [1, 12, 23, 34], @cracker.next_possible_amounts
-    assert_equal [1, 12, 23, 35], @cracker.next_possible_amounts
-  end
-
   def test_offsets_returns_offsets_from_stored_date
     assert_equal [1, 0, 2, 5], @cracker.offsets
   end
 
-  def test_next_possible_amounts_adjusted_with_date_returns_correctly
-    assert_equal [1, 0, 2, 5], @cracker.next_possible_amounts_adjusted_with_date
-    assert_equal [1, 0, 2, 6], @cracker.next_possible_amounts_adjusted_with_date
+  def test_next_possible_amounts_returns_correctly
+    assert_equal [1, 0, 2, 5], @cracker.next_possible_amounts
+    assert_equal [1, 0, 2, 6], @cracker.next_possible_amounts
   end
 
   def test_which_amount_at_beginning_of_assumption_string

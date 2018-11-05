@@ -20,6 +20,15 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @e.encrypt("hello world", "02715", "040895")
   end
 
+  def test_it_encrypts_ignoring_punctuation
+    expected = {
+      encryption: "keder ohulw!",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected, @e.encrypt("hello world!", "02715", "040895")
+  end
+
   def test_it_decrypts
 
     expected = {

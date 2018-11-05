@@ -15,4 +15,12 @@ class WordsTest < Minitest::Test
     refute Words.common?('sdfsdf')
   end
 
+  def test_it_can_count_words
+    assert_equal 2, Words.word_count('hello world')
+    assert_equal 3, Words.word_count('i am okay')
+    assert_equal 4, Words.word_count('i am the greatest')
+    assert_equal 3, Words.word_count('i am the sdijfo')
+    assert_equal 0, Words.word_count('dsfadssdfadsfsdff')
+  end
+
 end

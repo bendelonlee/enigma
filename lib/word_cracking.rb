@@ -21,19 +21,4 @@ module WordCracking
     word_count > 0 ? {current_key => word_count} : nil
   end
 
-  def make_word(amounts_cycle)
-    word = ""
-    @string[@index..-1].chars.each_with_index do |char, i|
-      letter = rotate_letter(char, amounts_cycle.peek)
-      if letter == " "
-        # require 'pry'; binding.pry
-        next if word.empty?
-        @index += i + 1; return word
-      else
-        word += letter
-      end
-      amounts_cycle.next
-    end
-    return word
-  end
 end

@@ -5,4 +5,7 @@ class Words
   def self.common?(string)
     WORLD_SET.include?(string)
   end
+  def self.word_count(string)
+    string.split.count { |word| common?(word)}
+  end
 end

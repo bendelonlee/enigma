@@ -19,6 +19,11 @@ class CrypterTest < Minitest::Test
     assert_equal "this secret must be kept secret", @crypter.send(:string)
   end
 
+  def test_the_string_is_automatically_downcased
+    crypter = Crypter.new('This secret must be kept secret', '72113', @date)
+    assert_equal "this secret must be kept secret", crypter.send(:string)
+  end
+
   def test_it_can_recieve_a_key
     assert_equal '72113', @crypter.send(:key)
   end

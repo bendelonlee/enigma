@@ -1,4 +1,5 @@
 require_relative 'words'
+require_relative 'decrypter'
 module WordCracking
   def check_all_possible_amounts_and_find_key_that_results_in_most_words
     keys_and_word_counts = {}
@@ -12,13 +13,10 @@ module WordCracking
   end
 
   def check_next_possible_amounts_for_word_count
-    amounts_cycle = next_possible_amounts.cycle
-    word_count = 0; word = ''
-    while word_count >= 0 && word != :string_ends
-      word = make_word(amounts_cycle)
-      Words.common?(word) ? word_count += 1 : word_count -= 1
-    end
-    word_count > 0 ? {current_key => word_count} : nil
+    new_key = next_possible_key
+    @decrypter = Decrypter.new(@string[0..20], new_key, @date)
+    word_count = Words.word_count(@decrypter.decrypt_string)
+    word_count > 0 ? {new_key => word_count} : nil
   end
 
 end

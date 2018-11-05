@@ -28,6 +28,12 @@ class Enigma
     decrypt(string, key, date)
   end
 
+  def crack_endless(string, date)
+    cracker = Cracker.new(string, ReliableDate.new(date), nil)
+    key = cracker.crack
+    decrypt(string, key, date)
+  end
+
   private
   attr_reader :string, :date, :encrypter
 end

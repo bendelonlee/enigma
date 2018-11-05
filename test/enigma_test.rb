@@ -79,4 +79,15 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, enigma.crack('kzoir yqsravipfzdguhkstjrjktiwzqwej', "041118")
   end
 
+
+  def test_it_can_crack_a_string_when_there_isnt_the_word_end_at_the_end
+    enigma = Enigma.new
+    expected = {
+      decryption: "this secret must be kept secret it will not end with the word end just so that it will be surely forever secret",
+      key: "11857",
+      date: "051118"
+    }
+    assert_equal expected, enigma.crack_endless('mhoztskjkezgfuy tbkgdev tskjkezgbtfcblrggozgynjgpizottnltwuyx kux paltfzh zoutfpm bpelfiy yakeretfuyyvkytskjkez', "051118")
+  end
+
 end

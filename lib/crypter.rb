@@ -9,7 +9,7 @@ class Crypter
   DEFAULT_CHARACTER_MAP = ('a'..'z').to_a << ' '
 
   def initialize(string, key, reliabledate)
-    @string = string
+    @string = string.downcase
     @key = key
     @date = reliabledate
     set_defaults
